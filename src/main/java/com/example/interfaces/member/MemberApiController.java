@@ -23,6 +23,12 @@ public class MemberApiController {
         return ResponseEntity.ok(memberService.registerMember(memberCommand));
     }
 
+    @PostMapping("/api/v2/members")
+    public ResponseEntity<?> registerMemberV2(@Valid @RequestBody MemberDto.CreateV2 createV2) {
+        var memberCommand = memberDtoMapper.of(createV2);
+        return ResponseEntity.ok(memberService.registerMember(memberCommand));
+    }
+
     @GetMapping("/api/v1/members/{id}")
     public ResponseEntity<?> getMember(@PathVariable("id") String id) {
         MemberDto.Base base = new MemberDto.Base(id, "test");
