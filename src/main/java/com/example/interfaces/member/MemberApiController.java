@@ -18,20 +18,20 @@ public class MemberApiController {
     private final MemberDtoMapper memberDtoMapper;
 
     @PostMapping("/api/v1/members")
-    public ResponseEntity<?> registerMember(@Valid @RequestBody Create create) {
-        var memberCommand = memberDtoMapper.of(create);
+    public ResponseEntity<?> registerMember(@Valid @RequestBody final Create create) {
+        final var memberCommand = memberDtoMapper.of(create);
         return ResponseEntity.ok(memberService.registerMember(memberCommand));
     }
 
     @PostMapping("/api/v2/members")
-    public ResponseEntity<?> registerMemberV2(@Valid @RequestBody MemberDto.CreateV2 createV2) {
-        var memberCommand = memberDtoMapper.of(createV2);
+    public ResponseEntity<?> registerMemberV2(@Valid @RequestBody final MemberDto.CreateV2 createV2) {
+        final var memberCommand = memberDtoMapper.of(createV2);
         return ResponseEntity.ok(memberService.registerMember(memberCommand));
     }
 
     @GetMapping("/api/v1/members/{id}")
-    public ResponseEntity<?> getMember(@PathVariable("id") String id) {
-        MemberDto.Base base = new MemberDto.Base(id, "test");
+    public ResponseEntity<?> getMember(@PathVariable("id") final String id) {
+        final MemberDto.Base base = new MemberDto.Base(id, "test");
         return new ResponseEntity<>(base, HttpStatus.OK);
     }
 }
