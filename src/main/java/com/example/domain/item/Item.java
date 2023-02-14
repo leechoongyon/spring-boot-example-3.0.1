@@ -1,8 +1,5 @@
 package com.example.domain.item;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,14 +9,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Data
-@Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Item {
-    @Id
     private String id;
-    @Column
     private String itemName;
 
     private List<ItemDescription> descriptionList;
