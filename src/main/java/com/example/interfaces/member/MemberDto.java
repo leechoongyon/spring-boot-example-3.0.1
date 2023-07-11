@@ -1,6 +1,7 @@
 package com.example.interfaces.member;
 
 import com.example.domain.member.validator.MemberIdConstration;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
@@ -25,6 +26,16 @@ public class MemberDto {
         private String id;
         private String name;
     }
+
+    @Data
+    @NoArgsConstructor
+    @Builder
+    @AllArgsConstructor
+    public static class CreateV3 {
+        private String id;
+        private String name;
+    }
+
 
     @Getter
     @NoArgsConstructor

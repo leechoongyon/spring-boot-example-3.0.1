@@ -1,5 +1,6 @@
 package com.example.interfaces.member;
 
+import com.example.domain.member.MemberCommand;
 import com.example.domain.member.MemberService;
 import com.example.interfaces.member.MemberDto.Create;
 import jakarta.validation.Valid;
@@ -28,6 +29,13 @@ public class MemberApiController {
         final var memberCommand = memberDtoMapper.of(createV2);
         return ResponseEntity.ok(memberService.registerMember(memberCommand));
     }
+
+    @PostMapping("/api/v3/members")
+    public ResponseEntity<?> registerMemberV3(@RequestBody final MemberDto.CreateV3 createV3) {
+        MemberCommand.Create memberCommand = MemberCommand.Create.builder().build();
+        return ResponseEntity.ok(memberService.registerMember(memberCommand));
+    }
+
 
     @GetMapping("/api/v1/members/{id}")
     public ResponseEntity<?> getMember(@PathVariable("id") final String id) {

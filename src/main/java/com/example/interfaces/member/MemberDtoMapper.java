@@ -13,4 +13,5 @@ import org.mapstruct.ReportingPolicy;
 public interface MemberDtoMapper {
     MemberCommand.Create of(MemberDto.Create create);
     MemberCommand.Create of(MemberDto.CreateV2 create);
+    MemberCommand.Create of(MemberDto.CreateV3 create);
 }
